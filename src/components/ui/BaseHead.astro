@@ -11,7 +11,7 @@ interface Props {
 
 const { 
   title,
-  description = 'Ingeniero Informático y Full Stack Developer. Especializado en React, Node.js y TypeScript. Ve mis proyectos y contáctame.', 
+  description = 'Analista IT & Fullstack Developer. Experiencia en React, .NET y SQL Server. Enfocado en debugging, performance y aplicaciones en producción.',
   image 
 } = Astro.props
 
@@ -19,42 +19,39 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href
 
 const ogImage = image 
   ? new URL(image.src, Astro.site).href
-  : new URL('/previewpage.jpg', Astro.site).href
+  : new URL('/preview.png', Astro.site).href
 ---
 
-<!-- Preload fuentes -->
 <link rel="preload" href={outfitFont}  as="font" type="font/woff2" crossorigin />
 <link rel="preload" href={ibmPlexFont} as="font" type="font/woff2" crossorigin />
 
-<!-- Global Metadata -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
+
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32"   href="/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="48x48"   href="/favicon-48.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
-<link rel="apple-touch-icon"      sizes="192x192" href="/favicon-192.png" />
-<link rel="sitemap" href="/sitemap-index.xml" />
+
 <meta name="generator" content={Astro.generator} />
 
-<!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
-<!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 <meta name="author" content="Kevin Djemdjemian" />
-<meta name="keywords" content="Kevin Djemdjemian, kevinDjem, full stack developer mexico, react developer, node.js developer, typescript developer, nextjs developer, astro framework, tailwindcss, desarrollador web fullstack, ingeniero informatico, veracruz mexico, desarrollador remoto, freelance developer mexico, api restful, postgresql developer" />
 
-<!-- Open Graph / Facebook -->
+<meta name="keywords" content="Kevin Djemdjemian, Fullstack Developer, .NET Developer, React Developer, SQL Server, Backend Developer, APIs REST, debugging producción, desarrollo web Argentina" />
+
+<!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImage} />
-<meta property="og:site_name" content="Kevin Djemdjemian Portfolio" />
+<meta property="og:site_name" content="Kevin Djemdjemian" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
@@ -65,34 +62,31 @@ const ogImage = image
 
 <meta name="robots" content="index, follow" />
 
-<!-- JSON-LD Structured Data -->
 <script type="application/ld+json" set:html={JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": "https://kevinDjem-dev.vercel.app/#person",
+  "@id": "https://kevindjem-portfolio.vercel.app/#person",
   "name": "Kevin Djemdjemian",
-  "alternateName": "KevinDjem",
-  "url": "https://kevinDjem-dev.vercel.app/",
-  "image": "https://kevinDjem-dev.vercel.app/avatar.webp",
-  "jobTitle": "Full Stack Developer",
-  "description": "Ingeniero Informático y Full Stack Developer. Especializado en React, Node.js y TypeScript. Basado en México, disponible remotamente. Ve mis proyectos y contáctame.",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "email": "kfdjem@gmail.com",
-    "contactType": "personal"
-  },
+  "url": "https://kevindjem-portfolio.vercel.app/",
+  "image": "https://kevindjem-portfolio.vercel.app/avatar.webp",
+  "jobTitle": "Fullstack Developer / Analista IT",
+  "description": description,
+  "email": "kfdjem@gmail.com",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Veracruz",
-    "addressRegion": "Veracruz",
-    "addressCountry": "MX"
+    "addressCountry": "AR"
   },
   "sameAs": [
     "https://github.com/KevinDjem",
     "https://www.linkedin.com/in/kevin-djemdjemian-666429398/"
   ],
   "knowsAbout": [
-    "React", "Node.js", "TypeScript", "Next.js",
-    "Astro", "TailwindCSS", "PostgreSQL", "Docker"
+    "React",
+    ".NET",
+    "SQL Server",
+    "TypeScript",
+    "APIs REST",
+    "Debugging",
+    "Performance"
   ]
 })} />
