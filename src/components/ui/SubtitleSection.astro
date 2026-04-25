@@ -1,0 +1,16 @@
+---
+interface Props {
+  title: string;
+  className?: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="flex items-center gap-3 mb-8">
+  <span class="h-px flex-1 bg-line2"></span>
+  <p class="font-mono text-xs tracking-widest text-muted uppercase">
+    {title}
+  </p>
+  <span class="h-px flex-1 bg-line2"></span>
+</div>

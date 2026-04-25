@@ -1,0 +1,54 @@
+---
+import {
+  ArrowRightIcon,
+  DownloadIcon,
+  ExternalLinkIcon,
+} from "../icons/contact";
+import { Section, CtaButton, PulseDot } from "../ui";
+---
+
+<Section id="contact">
+  <article class="text-center mb-12">
+    <h3
+      class="font-bold leading-none tracking-tighter select-none"
+      style="font-size:clamp(1.5rem,6vw,4rem)"
+    >
+      <span class="text-ink">Kevin Djemdjemian</span>
+    </h3>
+    <a
+      href="mailto:kfdjem@gmail.com"
+      class="group inline-flex items-center gap-2 mt-5 text-muted hover:text-lime transition-colors"
+    >
+      <span class="font-mono text-sm tracking-wide">kfdjem@gmail.com</span>
+      <ExternalLinkIcon
+        class:list="stroke-2 size-4 opacity-0 group-hover:opacity-100 -translate-y-0.5 group-hover:translate-y-0 transition-all"
+      />
+    </a>
+  </article>
+  <article
+    class="border border-line bg-surface rounded-xl p-5 mb-12 flex flex-col sm:flex-row items-center justify-between gap-5"
+  >
+    <section class="flex items-center gap-3">
+      <PulseDot />
+      <div>
+        <p class="text-sm font-medium text-ink">
+          Disponible para nuevas oportunidades
+        </p>
+        <p class="text-xs text-muted font-light">
+          Full-time &bull; Remoto / Híbrido
+        </p>
+      </div>
+    </section>
+    <div class="hidden sm:block w-px h-10 bg-line2"></div>
+    <section class="flex gap-2.5 flex-wrap justify-center">
+      <CtaButton variant="primary" href="mailto:kfdjem@gmail.com">
+        Hablemos
+        <ArrowRightIcon class:list="size-3.5" />
+      </CtaButton>
+      <CtaButton variant="ghost" download href="/KevinDjemdjemian_CV.pdf">
+        Descargar CV
+        <DownloadIcon class:list="size-3.5" />
+      </CtaButton>
+    </section>
+  </article>
+</Section>

@@ -1,0 +1,57 @@
+---
+import { Container, CtaButton, Section, TitleSection } from "../../components/ui";
+import Badge from "../../components/ui/Badge.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+
+
+<Layout title="components" description="hola"  >
+  <Container className="flex flex-col items-center">
+    <Section className=" mt-24">
+      <TitleSection title="Buttons" />
+      <CtaButton href="#" variant="primary">
+        Primary
+      </CtaButton>
+      <CtaButton href="#" variant="solid">
+        Solid
+      </CtaButton>
+      <CtaButton href="#" variant="outline-sm">
+        outline-sm
+      </CtaButton>
+      <CtaButton href="#" variant="ghost">
+        Ghost
+      </CtaButton>
+      <CtaButton href="#" variant="text">
+        Text
+      </CtaButton>
+    </Section>
+    <Section className="">
+      <TitleSection title="Badges" />
+        <Badge size="xs">
+          xs
+        </Badge>
+        <Badge size="sm">
+          sm
+        </Badge>
+        <Badge size="md">
+          md
+        </Badge>
+    </Section>
+    <Section className="grid place-items-center">
+      <TitleSection title="Cards" />
+      <div class="h-40 text-white grid place-items-center w-40 border mb-6 group bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-sky-500/10 rounded-xl overflow-hidden">
+        Card
+      </div>
+
+      <div class='relative h-48 w-48'>
+        <div class='absolute top-0 flex w-full justify-center'>
+          <div class='left-0 h-[1px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-white to-[rgba(17,17,17,0)] transition-all duration-1000' />
+        </div>
+        <div class='flex h-full items-center justify-center rounded-md border border-gray-800 bg-gradient-to-b from-gray-950 to-black px-3 py-2'>
+          <p class='text-sm text-gray-200'>Card Content</p>
+        </div>
+      </div>
+    </Section>
+  </Container>
+</Layout>

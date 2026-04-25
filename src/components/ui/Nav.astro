@@ -1,0 +1,76 @@
+---
+import CtaButton from "./CtaButton.astro"
+
+const navItems = [
+  { name: 'Experiencia', href: '/#experience', label: 'experience' },
+  { name: 'Sobre mí', href: '/#about', label: 'about' }
+]
+---
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-lg">
+  <nav class="max-w-4xl mx-auto px-6 h-14 flex items-center justify-center sm:justify-between">
+    <a href="/#home" class="hidden sm:inline-flex font-mono text-sm font-medium tracking-widest text-ink">
+      KevinDjem
+    </a>
+    <ul class="flex sm:gap-8 gap-4 list-none items-center">
+      {
+        navItems.map(item => (
+          <li class="cursor-pointer hover:text-lime transition-colors text-nowrap">
+            <CtaButton
+              ariaLabel={item.label}
+              variant="text"
+              href={item.href}
+            >
+              {item.name}
+            </CtaButton>
+          </li>
+        ))
+      }
+      <li>
+        <CtaButton
+          ariaLabel='contact'
+          variant="outline-sm"
+          href="/#contact"
+        >
+          Contacto
+        </CtaButton>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const sections = document.querySelectorAll('section[id]')
+    const navLinks = document.querySelectorAll('nav ul li a')
+    
+    const callback = (entries: []) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.remove('text-lime')
+            if (link.getAttribute('aria-label') === entry.target.id) {
+              link.classList.add('text-lime')
+            }
+          })
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: '-80px 0px -50% 0px',
+      // threshold: 0.5
+    })
+
+    sections.forEach(section => observer.observe(section))
+
+    document.onvisibilitychange = () => {
+      if (document.visibilityState === 'hidden') {
+        observer.disconnect()
+      } else {
+        sections.forEach(section => observer.observe(section))
+      }
+    }
+  })
+</script>

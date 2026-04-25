@@ -1,0 +1,127 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* ── Colores base ── */
+  --color-base:     #0a0a0a;
+  --color-surface:  #111111;
+  --color-surface2: #1a1a1a;
+  --color-line:     #1f1f1f;
+  --color-line2:    #2a2a2a;
+
+  /* ── Acento ── */
+  --color-lime:        #aadd55;
+  --color-lime-dim:    rgba(170, 221, 85, 0.10);
+  --color-lime-border: rgba(170, 221, 85, 0.28);
+
+  /* ── Texto ── */
+  --color-ink:   #f0f0f0;
+  --color-muted: #888888;
+  --color-faint: #666666;
+
+  /* ── Tipografía ── */
+  --font-sans: 'Outfit Variable', sans-serif;
+  --font-mono: 'IBM Plex Sans Variable', monospace;
+
+  /* ── Espaciado base ── */
+  --max-width: 900px;
+  --nav-height: 56px;
+
+  --animate-fade-up:   fadeUp 0.6s ease both;
+  --animate-pulse-dot: pulse-dot 2.4s ease-in-out infinite;
+
+   /* Keyframes */
+  @keyframes fadeUp {
+    0%   { opacity: 0; transform: translateY(18px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.2; }
+  }
+}
+
+/* ─── Reset base ─── */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-padding: 80px;
+  }
+
+  body {
+    @apply bg-base text-ink font-sans;
+  }
+
+  /* scrollbar minimalista */
+  ::-webkit-scrollbar       { width: 6px; }
+  ::-webkit-scrollbar-track { background: #0a0a0a; }
+  ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #444444; }
+
+  /* Fuerza font-display swap */
+  @font-face { font-family: 'Outfit Variable';       font-display: swap; }
+  @font-face { font-family: 'IBM Plex Sans Variable'; font-display: swap; }
+}
+
+/* ─── Utilidades que Tailwind no puede expresar de forma nativa ─── */
+@layer utilities {
+
+  /* lime con alpha — necesario porque Tailwind no genera bg-lime/10 sin safelist */
+  .bg-lime-dim    { background-color: rgba(170, 221, 85, 0.10); }
+  .border-lime-soft { border-color:   rgba(170, 221, 85, 0.28); }
+
+  /* stagger delays para animaciones de entrada */
+  .delay-1 { animation-delay: 0.05s; }
+  .delay-2 { animation-delay: 0.15s; }
+  .delay-3 { animation-delay: 0.25s; }
+  .delay-4 { animation-delay: 0.35s; }
+  .delay-5 { animation-delay: 0.50s; }
+  .delay-6 { animation-delay: 0.65s; }
+
+  /* outline text — apellido en el hero */
+  .text-outline {
+    color: transparent;
+    font: bold;
+    -webkit-text-stroke: 1px #aadd55;
+  }
+
+  /* glow radial verde detrás del hero */
+  .hero-glow {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 700px; height: 500px;
+    background: radial-gradient(
+      circle at center,
+      rgba(170, 221, 85, 0.07) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+}
+
+.avatar-wrap {
+  position: relative;
+}
+
+.avatar-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(170,221,85,0.3), transparent 60%);
+  z-index: 0;
+}
+  
+/* ─── Grain — efecto de textura sobre el fondo ─── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.35;
+}

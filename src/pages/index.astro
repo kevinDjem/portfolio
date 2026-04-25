@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Container } from "../components/ui";
+import { Contact, About,  Home, Experience } from "../components/sections";
+---
+
+<Layout
+	title="Kevin Djemdjemian | Full Stack Developer · React, Node.js & TypeScript" 
+  description="Full Stack Developer especializado en React, Node.js y TypeScript. Basado en Argentina, disponible remotamente. Ve mis proyectos y contáctame."
+>
+	<Home />
+	<Container>
+		<Experience />
+		<About />
+		<Contact />
+	</Container>
+</Layout>

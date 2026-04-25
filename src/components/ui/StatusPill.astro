@@ -1,0 +1,23 @@
+---
+interface Props {
+  label: string
+  variant?: 'active' | 'inactive' | 'avaylable'
+}
+const { label, variant = 'active' } = Astro.props
+
+const styles = {
+  active:   "text-lime border-lime/25 bg-lime/10",
+  inactive: "text-muted border-line2 bg-surface",
+  avaylable: "font-thin border-line2 bg-surface font-mono text-xs text-muted tracking-widest uppercase px-4 py-1.5"
+}
+const dotStyles = {
+  active:   "bg-lime animate-pulse",
+  inactive: "bg-faint",
+  avaylable: "bg-lime animate-pulse-dot"
+}
+---
+
+<span class=`inline-flex items-center gap-2 text-sm font-medium border rounded-full px-3 py-1 ${styles[variant]}`>
+  <span class=`w-1.5 h-1.5 rounded-full ${dotStyles[variant]}`></span>
+  {label}
+</span>

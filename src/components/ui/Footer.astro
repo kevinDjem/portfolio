@@ -1,0 +1,40 @@
+---
+import CtaButton from "./CtaButton.astro"
+---
+
+<footer class="relative overflow-hidden">
+  <section class="max-w-4xl mx-auto px-8 py-8 border-t border-line">
+    <article class="md:flex-row flex-col-reverse items-center justify-between gap-4 text-sm">
+      <article class="flex flex-wrap items-center justify-center sm:justify-between gap-4">
+        <p class="font-mono text-xs text-faint tracking-wider">© 2026 &bull; Hecho con 
+          <span class="text-muted">Astro</span> &amp; 
+          <span class="text-muted">Tailwind v4</span>
+        </p>
+        <div class="flex items-center gap-5">
+          <CtaButton
+            variant="text"
+            target="_blank"
+            href="https://github.com/KevinDjem"
+          >
+            Github
+          </CtaButton>
+          <span class="w-px h-3 bg-line2"></span>
+          <CtaButton
+            variant="text"
+            target="_blank"
+            href="https://www.linkedin.com/in/kevin-djemdjemian-666429398/"  
+          >
+            Linkedin
+          </CtaButton>
+          <span class="w-px h-3 bg-line2"></span>
+          <CtaButton
+            variant="text"
+            href="/#home"
+          >
+            ↑ Volver arriba
+          </CtaButton>
+        </div>
+      </article>
+    </article>
+  </section>
+</footer>

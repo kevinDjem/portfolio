@@ -1,0 +1,98 @@
+---
+import type { ImageMetadata } from "astro"
+import outfitFont  from '@fontsource-variable/outfit/files/outfit-latin-wght-normal.woff2?url'
+import ibmPlexFont from '@fontsource-variable/ibm-plex-sans/files/ibm-plex-sans-latin-wght-normal.woff2?url'
+
+interface Props {
+  title: string
+  description?: string
+  image?: ImageMetadata
+}
+
+const { 
+  title,
+  description = 'Ingeniero Informático y Full Stack Developer. Especializado en React, Node.js y TypeScript. Ve mis proyectos y contáctame.', 
+  image 
+} = Astro.props
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href
+
+const ogImage = image 
+  ? new URL(image.src, Astro.site).href
+  : new URL('/previewpage.jpg', Astro.site).href
+---
+
+<!-- Preload fuentes -->
+<link rel="preload" href={outfitFont}  as="font" type="font/woff2" crossorigin />
+<link rel="preload" href={ibmPlexFont} as="font" type="font/woff2" crossorigin />
+
+<!-- Global Metadata -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32"   href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48"   href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
+<link rel="apple-touch-icon"      sizes="192x192" href="/favicon-192.png" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="author" content="Kevin Djemdjemian" />
+<meta name="keywords" content="Kevin Djemdjemian, kevinDjem, full stack developer mexico, react developer, node.js developer, typescript developer, nextjs developer, astro framework, tailwindcss, desarrollador web fullstack, ingeniero informatico, veracruz mexico, desarrollador remoto, freelance developer mexico, api restful, postgresql developer" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:site_name" content="Kevin Djemdjemian Portfolio" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<meta name="robots" content="index, follow" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://kevinDjem-dev.vercel.app/#person",
+  "name": "Kevin Djemdjemian",
+  "alternateName": "KevinDjem",
+  "url": "https://kevinDjem-dev.vercel.app/",
+  "image": "https://kevinDjem-dev.vercel.app/avatar.webp",
+  "jobTitle": "Full Stack Developer",
+  "description": "Ingeniero Informático y Full Stack Developer. Especializado en React, Node.js y TypeScript. Basado en México, disponible remotamente. Ve mis proyectos y contáctame.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "kfdjem@gmail.com",
+    "contactType": "personal"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Veracruz",
+    "addressRegion": "Veracruz",
+    "addressCountry": "MX"
+  },
+  "sameAs": [
+    "https://github.com/KevinDjem",
+    "https://www.linkedin.com/in/kevin-djemdjemian-666429398/"
+  ],
+  "knowsAbout": [
+    "React", "Node.js", "TypeScript", "Next.js",
+    "Astro", "TailwindCSS", "PostgreSQL", "Docker"
+  ]
+})} />

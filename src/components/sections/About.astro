@@ -1,0 +1,63 @@
+---
+import { TitleSection, SubtitleSection, Section, SkillsColumn, KeywordHighlight } from "../../components/ui"
+import { skills } from "../../constants/skills"
+---
+
+<Section id="about" className="mb-12 md:mb-20">
+  <TitleSection title="Sobre mí" />
+  <article class="flex sm:flex-row flex-col gap-12 items-center justify-center mb-12">
+    <section class="space-y-4 flex-1">
+      <h3 class="text-xl font-semibold tracking-tight">
+        Hola, soy Kevin
+        <span class="ml-1">👋</span>
+      </h3>
+
+      <p class="font-light text-muted leading-relaxed">
+        Soy <KeywordHighlight>Analista IT & Fullstack Developer</KeywordHighlight> con experiencia en soporte de aplicaciones y desarrollo en entornos productivos.
+      </p>
+
+      <p class="font-light text-muted leading-relaxed">
+        Trabajo principalmente con <KeywordHighlight>React</KeywordHighlight>, <KeywordHighlight>.NET</KeywordHighlight> y <KeywordHighlight>SQL Server</KeywordHighlight>, resolviendo incidencias reales, optimizando performance y manteniendo sistemas críticos en funcionamiento.
+      </p>
+
+      <p class="font-light text-muted leading-relaxed">
+        Me enfoco en <KeywordHighlight>debugging en producción</KeywordHighlight>, integración de <KeywordHighlight>APIs REST</KeywordHighlight> y mejora continua de aplicaciones, aportando tanto desde el código como desde el análisis técnico.
+      </p>
+
+      <p class="font-light text-muted leading-relaxed">
+        Busco seguir creciendo como desarrollador, participando en proyectos donde pueda tener impacto directo en la calidad y estabilidad del producto.
+      </p>
+    </section>
+
+    <figure class="flex justify-center avatar-wrap rounded-2xl">
+      <img
+        src="/avatar.webp"
+        loading="lazy"
+        decoding="async"
+        alt="Kevin Djemdjemian"
+        class="relative z-10 size-72 sm:size-64 rounded-2xl object-cover border border-line2"
+      />
+    </figure>
+  </article>
+
+  <article>
+    <SubtitleSection title="Tecnologias & Herramientas"/>
+    <section class="flex sm:flex-row flex-col gap-8">
+      <SkillsColumn
+        skills={skills.frontend}
+        titleSection="Frontend"
+        className="bg-info/10 text-info border border-info/30"
+      />
+      <SkillsColumn
+        skills={skills.backend}
+        titleSection="Backend"
+        className="bg-success/10 text-success border border-success/30"
+      />
+      <SkillsColumn
+        skills={skills.tools}
+        titleSection="Tools"
+        className="bg-gray-600/10 text-gray-300 border border-gray-300/30"
+      />
+    </section>
+  </article>
+</Section>
