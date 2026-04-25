@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://kevinDjem-dev.vercel.app',
+  site: 'https://kevindjem-portfolio.vercel.app/',
   compressHTML: true,
   vite: {
     plugins: [tailwindcss()],
